@@ -65,7 +65,7 @@ namespace API.Controllers
                 var order = await unit.Repository<Order>().GetEntityWithSpec(spec)
                     ?? throw new Exception("Order not Found");
                 if((long)order.GetTotal() * 100 != intent.Amount){
-                    order.Status = OrderStatus.PaymentMisMatch;
+                    order.Status = OrderStatus.PaymentMismatch;
                 }
                 else {
                     order.Status = OrderStatus.PaymentReceived;
