@@ -3,6 +3,7 @@ export interface OrderToCreate {
           deliveryMethodId : number;
           shippingAddress : ShippingAddress;
           paymentSummary : PaymentSummary;
+          discount?: number;
 }
 
 export interface Order {
@@ -15,6 +16,7 @@ export interface Order {
   paymentSummary: PaymentSummary
   orderItems: OrderItem[]
   subtotal: number
+  discount?: number
   status: string
   paymentIntentId: string
   total: number

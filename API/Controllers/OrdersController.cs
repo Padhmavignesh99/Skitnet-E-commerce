@@ -4,9 +4,7 @@ using Core.Entities;
 using Core.Entities.OrderAggregate;
 using Core.Interfaces;
 using Core.Specification;
-using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -56,6 +54,7 @@ namespace API.Controllers
                 DeliveryMethod = deliveryMethod,
                 ShippingAddress = orderDto.ShippingAddress,
                 Subtotal = items.Sum(x => x.Price * x.Quantity),
+                Discount = orderDto.Discount,
                 PaymentSummary = orderDto.PaymentSummary,
                 PaymentIntentId = cart.PaymentIntentId,
                 BuyerEmail = email
